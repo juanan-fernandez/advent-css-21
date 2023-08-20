@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import { Budget } from './components/Budget/Budget';
+import { AddExpense } from './components/Budget/AddExpense/AddExpense';
+import { BudgetInput } from './components/Budget/BudgetInput';
+import { ExpensesList } from './components/Expenses/ExpensesList/ExpensesList';
+import { Expense } from './types/expenses.type';
 
-function App() {
-  const [count, setCount] = useState(0)
+const dummy: Expense[] = [
+	{
+		id: 'a1',
+		title: 'Expenses a1',
+		amount: 123,
+	},
+	{ id: 'a2', title: 'Expenses a1', amount: 234 },
+	{ id: 'a3', title: 'Expenses a1', amount: 345 },
+	{ id: 'a4', title: 'Expenses a1', amount: 2345.78 },
+	{ id: 'a5', title: 'Expenses a1', amount: 2332.56 },
+	{ id: 'a6', title: 'Expenses a1', amount: 12.78 },
+	{ id: 'a7', title: 'Expenses a1', amount: 2344.76 },
+];
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+function App(): JSX.Element {
+	return (
+		<>
+			<Budget>
+				<BudgetInput />
+				<AddExpense />
+			</Budget>
+			<ExpensesList expensesList={dummy} />
+		</>
+	);
 }
 
-export default App
+export default App;

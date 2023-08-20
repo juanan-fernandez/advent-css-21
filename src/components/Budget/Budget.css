@@ -1,0 +1,9 @@
+.budget {
+	background-color: var(--color-add-panel);
+	padding: 2rem;
+}
+
+.budget h1 {
+	margin-bottom: 1.4rem;
+	text-align: left;
+}

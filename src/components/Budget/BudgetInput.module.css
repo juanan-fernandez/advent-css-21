@@ -1,0 +1,12 @@
+.budget__container {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	margin-bottom: 3rem;
+}
+
+.budget__container label {
+	position: absolute;
+	top: 0.2rem;
+	left: 1.1rem;
+}
