@@ -6,7 +6,7 @@
 	font-weight: 400;
 
 	color: rgba(255, 255, 255, 0.95);
-	background-color: #242424;
+	background-color: #a12525;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
@@ -23,10 +23,14 @@
 	--color-negative-number: #df1414;
 }
 
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	margin: 0;
-	display: flex;
-	place-items: center;
 	min-width: 320px;
 	min-height: 100vh;
 }
@@ -55,11 +59,11 @@ input {
 	font-family: 'Poppins', sans-serif;
 	background-color: var(--color-input-background);
 	border: none;
-	padding: 1.1rem;
+	padding: 2.4rem 1.1rem 0.9rem 1.1rem;
 	color: #fff;
 	border-radius: 16px;
 	font-size: 20px;
-	height: 55px;
+	height: 65px;
 }
 
 input:focus {

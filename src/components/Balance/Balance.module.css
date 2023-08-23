@@ -1,0 +1,28 @@
+.balance {
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 3rem;
+	grid-column: 1 / 3;
+}
+
+.balance__income {
+	color: #111;
+}
+
+.balance__expenses {
+	color: #111;
+}
+
+.balance__balance {
+	color: #111;
+}
+
+.balance__balance__positive h1 {
+	color: var(--color-positive-number);
+}
+
+.balance__balance__negative h1 {
+	color: var(--color-negative-number);
+}

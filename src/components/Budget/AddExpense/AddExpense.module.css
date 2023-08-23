@@ -1,0 +1,37 @@
+.form {
+	display: flex;
+	/*grid-template-columns: 1fr 1fr;*/
+	justify-content: start;
+	gap: 2rem;
+}
+
+.form__expense {
+	position: relative;
+}
+
+.form__expense label {
+	position: absolute;
+	top: 0.3rem;
+	left: 1rem;
+}
+
+.form__amount {
+	position: relative;
+	display: flex;
+	gap: 1rem;
+}
+
+.form__amount label {
+	position: absolute;
+	top: 0.3rem;
+	left: 1rem;
+}
+
+.form__amount button {
+	background-color: transparent;
+	font-size: 3rem;
+	font-weight: 700;
+	color: var(--color-lime-green);
+	border: none;
+	cursor: pointer;
+}

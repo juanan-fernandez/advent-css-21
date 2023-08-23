@@ -2,8 +2,10 @@ import './App.css';
 import { Budget } from './components/Budget/Budget';
 import { AddExpense } from './components/Budget/AddExpense/AddExpense';
 import { BudgetInput } from './components/Budget/BudgetInput';
-import { ExpensesList } from './components/Expenses/ExpensesList/ExpensesList';
+import { ExpensesList } from './components/Expenses/ExpensesList';
 import { Expense } from './types/expenses.type';
+import { BudgetContext } from './store/budget-context';
+import { Balance } from './components/Balance/Balance';
 
 const dummy: Expense[] = [
 	{
@@ -27,6 +29,7 @@ function App(): JSX.Element {
 				<AddExpense />
 			</Budget>
 			<ExpensesList expensesList={dummy} />
+			<Balance />
 		</>
 	);
 }
