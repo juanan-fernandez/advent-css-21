@@ -18,7 +18,7 @@
 .form__amount {
 	position: relative;
 	display: flex;
-	gap: 1rem;
+	gap: 0.6rem;
 }
 
 .form__amount label {
@@ -34,4 +34,10 @@
 	color: var(--color-lime-green);
 	border: none;
 	cursor: pointer;
+	padding: 0.5rem;
+}
+
+.form__amount button:focus {
+	border: none;
+	outline: 0.5px solid var(--color-lime-green);
 }

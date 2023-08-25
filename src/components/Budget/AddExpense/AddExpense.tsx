@@ -1,5 +1,9 @@
 import styles from './AddExpense.module.css';
+import { useInputFormat } from './useInputFormat';
 export function AddExpense(): JSX.Element {
+	const { getFocus, blurFocus, changeInputValue, inputVal, rawNumber } =
+		useInputFormat();
+
 	return (
 		<>
 			<form className={styles.form}>
@@ -9,7 +13,15 @@ export function AddExpense(): JSX.Element {
 				</div>
 				<div className={styles.form__amount}>
 					<label htmlFor='expenseAmount'>Amount</label>
-					<input type='number' name='expenseAmount' placeholder='0' />
+					<input
+						type='string'
+						name='expenseAmount'
+						placeholder='0'
+						onFocus={getFocus}
+						onBlur={blurFocus}
+						onChange={changeInputValue}
+						value={inputVal}
+					/>
 					<button type='submit'>+</button>
 				</div>
 			</form>
