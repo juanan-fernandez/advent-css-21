@@ -25,7 +25,7 @@
 		"quotes": ["error", "single"],
 		"semi": "off",
 		"react/react-in-jsx-scope": "off",
-		"@typescript-eslint/explicit-function-return-type": "warn",
+		"@typescript-eslint/explicit-function-return-type": "off",
 		"@typescript-eslint/no-unused-vars": "warn",
 		"@typescript-eslint/no-floating-promises": "off",
 		"@typescript-eslint/strict-boolean-expressions": "off",

@@ -1,6 +1,6 @@
 import { BudgetAndExpenseType, Expense } from '../types/expenses.type';
 
-enum budgetActionKind {
+export enum budgetActionKind {
 	ADD_EXPENSE = 'ADD_EXPENSE',
 	DELETE_EXPENSE = 'DELETE_EXPENSE',
 	UPDATE_BUDGET = 'UPDATE_BUDGET',
