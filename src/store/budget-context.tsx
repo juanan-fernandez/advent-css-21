@@ -1,10 +1,6 @@
 import { ReactNode, createContext, useState } from 'react';
-import { Expense } from '../types/expenses.type';
-
-type BudgetAndExpenseType = {
-	budget: number;
-	expenses: Expense[];
-};
+import { BudgetAndExpenseType, Expense } from '../types/expenses.type';
+import { budgetReducer, budgetInitialState } from './budget-reducer';
 
 type BudgetContextType = {
 	budgetAndExpenses: BudgetAndExpenseType;
@@ -12,18 +8,19 @@ type BudgetContextType = {
 	deleteExpense: (expenseId: string) => void;
 };
 
-const initialBudget: BudgetContextType = {
-	budgetAndExpenses: { budget: 0, expenses: [] },
-	addExpense: () => void {},
-	deleteExpense: () => void {},
-};
+// const initialBudget: BudgetContextType = {
+// 	budgetAndExpenses: { budget: 0, expenses: [] },
+// 	addExpense: () => void {},
+// 	deleteExpense: () => void {},
+// };
 
-export const BudgetContext = createContext<BudgetContextType>(initialBudget);
+export const BudgetContext = createContext<BudgetContextType | null>(null);
 
 export function BudgetContextProvider({ children }: { children: ReactNode }): ReactNode {
-	const [budgetAndExpenses, setBuggetAndExpenses] = useState<BudgetAndExpenseType>(
-		initialBudget.budgetAndExpenses
-	);
+	const [budgetAndExpenses, setBuggetAndExpenses] = useState<BudgetAndExpenseType>({
+		budget: 0,
+		expenses: [],
+	});
 
 	const addExpense = (expense: Expense): void => {
 		const newExpense: Expense = {
@@ -38,13 +35,13 @@ export function BudgetContextProvider({ children }: { children: ReactNode }): Re
 
 	const deleteExpense = (expenseId: string): void => {
 		console.log(expenseId);
+		setBuggetAndExpenses(prev => {
+			return {
+				...prev,
+				expenses: prev.expenses.filter(exp => exp.id !== expenseId),
+			};
+		});
 	};
-
-	// const deleteExpense = (expenseId: string): void => {
-	// 	setExpensesList(currentList => {
-	// 		return currentList.filter(item => item.id !== expenseId);
-	// 	});
-	// };
 
 	return (
 		<BudgetContext.Provider value={{ budgetAndExpenses, addExpense, deleteExpense }}>

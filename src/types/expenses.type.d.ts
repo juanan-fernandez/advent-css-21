@@ -3,3 +3,8 @@ export interface Expense {
 	title: string;
 	amount: number;
 }
+
+export interface BudgetAndExpenseType {
+	budget: number;
+	expenses: Expense[];
+}

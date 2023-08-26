@@ -14,8 +14,9 @@ export function useInputFormat(): useInputFormatResponse {
 	const [rawNumber, setRawNumber] = useState(0);
 
 	const getFocus = (): void => {
-		if (rawNumber) setInputVal(rawNumber);
+		rawNumber ? setInputVal(rawNumber) : setInputVal('');
 	};
+
 	const changeInputValue = (ev: React.ChangeEvent<HTMLInputElement>): void => {
 		if (isNaN(Number(ev.target.value))) return;
 		setInputVal(ev.target.value);
@@ -23,7 +24,7 @@ export function useInputFormat(): useInputFormatResponse {
 	};
 
 	const blurFocus = (): void => {
-		setRawNumber(Number(inputVal));
+		inputVal ? setRawNumber(Number(inputVal)) : setRawNumber(0);
 		setInputVal(prev => formatNumber(Number(prev)));
 	};
 
