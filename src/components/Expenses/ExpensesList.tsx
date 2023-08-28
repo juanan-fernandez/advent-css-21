@@ -1,6 +1,6 @@
 import styles from './ExpensesList.module.css';
 import { Expense } from '../../types/expenses.type';
-
+import { useBudgetCtx } from '../../store/useBudgetCtx';
 type Expenses = Expense[];
 
 type ExpensesListProps = {
@@ -8,6 +8,7 @@ type ExpensesListProps = {
 };
 
 export function ExpensesList({ expensesList }: ExpensesListProps): JSX.Element {
+	const budgetCtx = useBudgetCtx();
 	const list = expensesList.map(expense => {
 		return (
 			<li key={expense.id}>

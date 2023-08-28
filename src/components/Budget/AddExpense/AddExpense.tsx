@@ -1,5 +1,5 @@
 import styles from './AddExpense.module.css';
-import { useInputFormat } from './useInputFormat';
+import { useInputFormat } from '../hooks/useInputFormat';
 export function AddExpense(): JSX.Element {
 	const { getFocus, blurFocus, changeInputValue, inputVal, rawNumber } =
 		useInputFormat();

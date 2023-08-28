@@ -1,8 +1,10 @@
 import style from './BudgetInput.module.css';
-
-import { useInputFormat } from './AddExpense/useInputFormat';
+import { useContext, useEffect } from 'react';
+import { BudgetContext } from '../../store/budget-context';
+import { useInputFormat } from './hooks/useInputFormat';
 
 export function BudgetInput(): JSX.Element {
+	const budgetCtx = useContext(BudgetContext);
 	const {
 		getFocus,
 		blurFocus,
@@ -11,19 +13,10 @@ export function BudgetInput(): JSX.Element {
 		rawNumber,
 	} = useInputFormat();
 
-	// const getFocus = (): void => {
-	// 	rawNumber ? setBudget(rawNumber) : setBudget('');
-	// };
-	// const updateBudget = (ev: React.ChangeEvent<HTMLInputElement>): void => {
-	// 	if (isNaN(Number(ev.target.value))) return;
-	// 	setBudget(ev.target.value);
-	// 	return;
-	// };
+	useEffect(() => {
+		budgetCtx?.updateBudget(rawNumber);
+	}, [rawNumber]);
 
-	// const updateRawNumber = (): void => {
-	// 	budget ? setRawNumber(Number(budget)) : setRawNumber(0);
-	// 	setBudget(prev => formatNumber(Number(prev)));
-	// };
 	return (
 		<div className={style.budget__container}>
 			<label htmlFor='budget'>Budget Amount</label>
