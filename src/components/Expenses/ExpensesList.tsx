@@ -1,20 +1,15 @@
 import styles from './ExpensesList.module.css';
-import { Expense } from '../../types/expenses.type';
+import { formatNumber } from '../../utils/numbers';
 import { useBudgetCtx } from '../../store/useBudgetCtx';
-type Expenses = Expense[];
 
-type ExpensesListProps = {
-	expensesList: Expenses;
-};
-
-export function ExpensesList({ expensesList }: ExpensesListProps): JSX.Element {
+export function ExpensesList(): JSX.Element {
 	const budgetCtx = useBudgetCtx();
-	const list = expensesList.map(expense => {
+	const list = budgetCtx?.budgetAndExpenses.expenses.map(expense => {
 		return (
 			<li key={expense.id}>
 				<p>{expense.title}</p>
-				<p>{expense.amount}</p>
-				<span>
+				<p>{formatNumber(expense.amount)}</p>
+				<span onClick={() => budgetCtx.deleteExpense(expense.id)}>
 					<img src='/images/trash.svg' />
 				</span>
 			</li>

@@ -25,3 +25,11 @@
 	border-bottom: 1px solid #313131;
 	font-size: 20px;
 }
+.list li > p {
+	width: 250px;
+}
+
+.list li > p + p {
+	text-align: right;
+	margin-right: 1rem;
+}

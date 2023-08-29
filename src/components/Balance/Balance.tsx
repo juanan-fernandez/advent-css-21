@@ -1,12 +1,19 @@
 import styles from './Balance.module.css';
 import { formatNumber } from '../../utils/numbers';
+import { useBudgetCtx } from '../../store/useBudgetCtx';
 
-type BalancePropTypes = {
-	budget: number;
-	expensesAmount: number;
-};
+export function Balance(): JSX.Element {
+	const budgetCtx = useBudgetCtx();
+	const budget = budgetCtx!.budgetAndExpenses.budget;
 
-export function Balance({ budget, expensesAmount }: BalancePropTypes): JSX.Element {
+	const getExpensesAmount = (): number => {
+		const amount = budgetCtx!.budgetAndExpenses.expenses.reduce(
+			(sum, exp) => sum + exp.amount,
+			0
+		);
+		return amount;
+	};
+	const expensesAmount = getExpensesAmount();
 	const balance = budget - expensesAmount;
 	return (
 		<footer className={styles.balance}>

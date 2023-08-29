@@ -5,6 +5,7 @@ type useInputFormatResponse = {
 	getFocus: () => void;
 	blurFocus: () => void;
 	changeInputValue: (ev: React.ChangeEvent<HTMLInputElement>) => void;
+	clearInput: () => void;
 	inputVal: string | number;
 	rawNumber: number;
 };
@@ -28,5 +29,9 @@ export function useInputFormat(): useInputFormatResponse {
 		setInputVal(prev => formatNumber(Number(prev)));
 	};
 
-	return { getFocus, blurFocus, changeInputValue, inputVal, rawNumber };
+	const clearInput = (): void => {
+		setInputVal('');
+		setRawNumber(0);
+	};
+	return { getFocus, blurFocus, changeInputValue, clearInput, inputVal, rawNumber };
 }
